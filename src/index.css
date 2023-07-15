@@ -1,0 +1,19 @@
+* {
+  margin-top: 1rem;
+  background-color: black;
+  color: greenyellow;
+  text-align: center;
+  font-style: italic;
+}
+button {
+  background-color: blueviolet;
+  color: red;
+}
+li p {
+  margin: 0;
+  background-color: blueviolet;
+  color: red;
+}
+h1,p,h3 {
+  color: red;
+}
