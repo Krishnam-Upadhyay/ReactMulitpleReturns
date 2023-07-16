@@ -1,9 +1,9 @@
-import UseEffectFetch from './Components/MultipleReturn';
+import ControledInput from './ControledInput';
 
 function App() {
   return (
     <div>
-      <UseEffectFetch />
+      <ControledInput />
     </div>
   );
 }
