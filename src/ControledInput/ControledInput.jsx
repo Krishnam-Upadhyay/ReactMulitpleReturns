@@ -1,4 +1,3 @@
-import './app.css';
 import { useState } from 'react';
 const ControledInput = () => {
   const [name, setName] = useState('');
@@ -42,18 +41,6 @@ const ControledInput = () => {
         />
         <br />
 
-        <label htmlFor="email" className="form-label">
-          Email:
-        </label>
-        <input
-          type="email"
-          className="form-input"
-          id="email"
-          value={email}
-          onChange={handleEmailChange}
-          placeholder="abc@gmail.com"
-        />
-        <br />
         <button type="submit" className="form-button">
           Submit
         </button>
