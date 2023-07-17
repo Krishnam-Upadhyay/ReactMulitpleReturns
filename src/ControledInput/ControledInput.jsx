@@ -1,59 +1,46 @@
-import './app.css';
 import { useState } from 'react';
-const framworks = ['react', 'angular', 'view', 'svelte'];
+import './app.css';
 const ControledInput = () => {
-  const [shipping, setShipping] = useState(false);
-  const [framework, setFramework] = useState('react');
+  const [value, setValue] = useState(0);
 
   const handleSubmitChange = (e) => {
     e.preventDefault();
-    let data = { check: shipping, framework: framework };
-    console.log(data);
-  };
-  const handleShipping = (e) => {
-    e.preventDefault();
-    console.log(e.target.checked);
-    setShipping(e.target.checked);
-  };
-  const handleFramwork = (e) => {
-    e.preventDefault();
+    // console.log(e.currentTarget);
+    const formData = new FormData(e.currentTarget);
+    // console.log(formData.get('email'));
 
-    setFramework(e.target.value);
+    const newUser = Object.fromEntries(formData);
+    console.log(newUser);
+    setValue(value + 1);
   };
 
   return (
     <form className="form" onSubmit={handleSubmitChange}>
       <h4>Controled Input</h4>
       <div className="form-row">
-        <label htmlFor="Shipping" className="form-label">
-          free Shipping
+        <label htmlFor="Name" className="form-label">
+          Name
         </label>
         <input
-          type="checkbox"
+          type="text"
           className="form-input"
-          id="Shipping"
-          name="shipping"
-          checked={shipping}
-          onChange={handleShipping}
+          id="Name"
+          placeholder="Your Name"
+          name="name"
         />
         <br />
 
-        <label htmlFor="framework" className="form-label">
-          framwork:
+        <label htmlFor="email" className="form-label">
+          Email:
         </label>
-        <select
-          name="framework"
-          id="framework"
-          value={framework}
-          onChange={handleFramwork}
-        >
-          {framworks.map((framwork) => {
-            return <option key={framwork}>{framwork}</option>;
-          })}
-        </select>
-
+        <input
+          type="email"
+          className="form-input"
+          id="email"
+          placeholder="abc@gmail.com"
+          name="email"
+        />
         <br />
-
         <button type="submit" className="form-button">
           Submit
         </button>
