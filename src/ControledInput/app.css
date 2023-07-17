@@ -1,0 +1,33 @@
+.form {
+  margin: 0;
+  padding: 20px 20px;
+  border-radius: 30px;
+  text-align: center;
+  background-color: purple;
+  color: aqua;
+  overflow: hidden;
+}
+.form-label {
+  padding-right: 20px;
+}
+.form-row {
+  background-color: black;
+
+  padding: 20px 20px;
+  overflow: hidden;
+  border-radius: 30px;
+}
+.form-input {
+  background-color: black;
+  margin: 10px;
+
+  overflow: hidden;
+  border-radius: 30px;
+}
+button {
+  background-color: rgb(235, 3, 3);
+  margin: 10px;
+
+  overflow: hidden;
+  border-radius: 30px;
+}
