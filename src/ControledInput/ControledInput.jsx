@@ -2,9 +2,7 @@ import './app.css';
 import { useState } from 'react';
 const ControledInput = () => {
   const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [showemail, setShowEmail] = useState('');
-  const [showName, setShowName] = useState('');
+  const [user, setUser] = useState('');
 
   const handleNameChange = (e) => {
     const value = e.target.value;
@@ -16,7 +14,14 @@ const ControledInput = () => {
   };
   const handleSubmitChange = (e) => {
     e.preventDefault();
-    setShowName(name);
+    if (!name) {
+      return;
+    }
+    const fakeUser = Date.now();
+    const newUser = { id: fakeUser, name };
+    const updatedUser = [...user, ...newUser];
+    setUser(updatedUser);
+
     setShowEmail(email);
   };
 
