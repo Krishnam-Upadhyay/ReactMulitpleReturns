@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import './app.css';
 const ControledInput = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
