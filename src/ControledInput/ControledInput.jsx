@@ -1,68 +1,59 @@
 import './app.css';
 import { useState } from 'react';
+const framworks = ['react', 'angular', 'view', 'svelte'];
 const ControledInput = () => {
-  const [user, setUser] = useState({
-    name: '',
-    email: '',
-    password: '',
-  });
+  const [shipping, setShipping] = useState(false);
+  const [framework, setFramework] = useState('react');
 
   const handleSubmitChange = (e) => {
     e.preventDefault();
-    console.log(e.target.value);
-    console.log(e.target.name);
-    setUser({ ...user, [e.target.name]: [e.target.value] });
+    let data = { check: shipping, framework: framework };
+    console.log(data);
   };
-  const handleSSubmitChange = (e) => {
+  const handleShipping = (e) => {
     e.preventDefault();
-    console.log(user);
+    console.log(e.target.checked);
+    setShipping(e.target.checked);
+  };
+  const handleFramwork = (e) => {
+    e.preventDefault();
+
+    setFramework(e.target.value);
   };
 
   return (
-    <form className="form" onSubmit={handleSSubmitChange}>
+    <form className="form" onSubmit={handleSubmitChange}>
       <h4>Controled Input</h4>
       <div className="form-row">
-        <label htmlFor="Name" className="form-label">
-          Name
+        <label htmlFor="Shipping" className="form-label">
+          free Shipping
         </label>
         <input
-          type="text"
+          type="checkbox"
           className="form-input"
-          id="Name"
-          value={user.name}
-          onChange={handleSubmitChange}
-          placeholder="Your Name"
-          name="name"
+          id="Shipping"
+          name="shipping"
+          checked={shipping}
+          onChange={handleShipping}
         />
         <br />
 
-        <label htmlFor="password" className="form-label">
-          password:
+        <label htmlFor="framework" className="form-label">
+          framwork:
         </label>
-        <input
-          type="password"
-          className="form-input"
-          id="password"
-          value={user.password}
-          onChange={handleSubmitChange}
-          placeholder="abc@gmail.com"
-          name="password"
-        />
+        <select
+          name="framework"
+          id="framework"
+          value={framework}
+          onChange={handleFramwork}
+        >
+          {framworks.map((framwork) => {
+            return <option key={framwork}>{framwork}</option>;
+          })}
+        </select>
+
         <br />
 
-        <label htmlFor="email" className="form-label">
-          Email:
-        </label>
-        <input
-          type="email"
-          className="form-input"
-          id="email"
-          value={user.email}
-          onChange={handleSubmitChange}
-          placeholder="abc@gmail.com"
-          name="email"
-        />
-        <br />
         <button type="submit" className="form-button">
           Submit
         </button>

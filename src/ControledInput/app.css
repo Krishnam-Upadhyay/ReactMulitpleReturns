@@ -12,6 +12,7 @@
 }
 .form-row {
   background-color: black;
+  text-align: left;
 
   padding: 20px 20px;
   overflow: hidden;
@@ -19,7 +20,7 @@
 }
 .form-input {
   background-color: rgb(125, 243, 71);
-  margin: 10px;
+  margin: 10px 10px;
   font-style: italic;
   font-display: initial;
   font-weight: bolder;
