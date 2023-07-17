@@ -18,8 +18,11 @@
   border-radius: 30px;
 }
 .form-input {
-  background-color: black;
+  background-color: rgb(125, 243, 71);
   margin: 10px;
+  font-style: italic;
+  font-display: initial;
+  font-weight: bolder;
 
   overflow: hidden;
   border-radius: 30px;

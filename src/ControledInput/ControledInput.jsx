@@ -1,27 +1,25 @@
-import './app.css'
+import './app.css';
 import { useState } from 'react';
 const ControledInput = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [showemail, setShowEmail] = useState('');
-  const [showName, setShowName] = useState('');
+  const [user, setUser] = useState({
+    name: '',
+    email: '',
+    password: '',
+  });
 
-  const handleNameChange = (e) => {
-    const value = e.target.value;
-    setName(value);
-  };
-  const handleEmailChange = (e) => {
-    const value = e.target.value;
-    setEmail(value);
-  };
   const handleSubmitChange = (e) => {
     e.preventDefault();
-    setShowName(name);
-    setShowEmail(email);
+    console.log(e.target.value);
+    console.log(e.target.name);
+    setUser({ ...user, [e.target.name]: [e.target.value] });
+  };
+  const handleSSubmitChange = (e) => {
+    e.preventDefault();
+    console.log(user);
   };
 
   return (
-    <form className="form" onSubmit={handleSubmitChange}>
+    <form className="form" onSubmit={handleSSubmitChange}>
       <h4>Controled Input</h4>
       <div className="form-row">
         <label htmlFor="Name" className="form-label">
@@ -31,9 +29,24 @@ const ControledInput = () => {
           type="text"
           className="form-input"
           id="Name"
-          value={name}
-          onChange={handleNameChange}
+          value={user.name}
+          onChange={handleSubmitChange}
           placeholder="Your Name"
+          name="name"
+        />
+        <br />
+
+        <label htmlFor="password" className="form-label">
+          password:
+        </label>
+        <input
+          type="password"
+          className="form-input"
+          id="password"
+          value={user.password}
+          onChange={handleSubmitChange}
+          placeholder="abc@gmail.com"
+          name="password"
         />
         <br />
 
@@ -44,18 +57,15 @@ const ControledInput = () => {
           type="email"
           className="form-input"
           id="email"
-          value={email}
-          onChange={handleEmailChange}
+          value={user.email}
+          onChange={handleSubmitChange}
           placeholder="abc@gmail.com"
+          name="email"
         />
         <br />
         <button type="submit" className="form-button">
           Submit
         </button>
-        <br />
-        <h4>{showName}</h4>
-
-        <h4>{showemail}</h4>
       </div>
     </form>
   );
