@@ -1,9 +1,9 @@
-import ToggleExample from './CustomHooks/ToggleExample';
+import FetchData from './CustomHooks/FetchData';
 
 function App() {
   return (
     <div>
-      <ToggleExample />
+      <FetchData />
     </div>
   );
 }
