@@ -1,9 +1,9 @@
-import ControledInput from './ControledInput';
+import UseRef from './UseRefe';
 
 function App() {
   return (
     <div>
-      <ControledInput />
+      <UseRef />
     </div>
   );
 }
